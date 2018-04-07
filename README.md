@@ -1,4 +1,4 @@
-Small Business Website Model
+Small Business Website With User Accounts
 
 This web app allows even a small business to have a content management system that persists the data of its customers through a useful, password-protected interface.
 

@@ -1,4 +1,4 @@
-Small Business Model
+Small Business Website Model
 
 This web app allows even a small business to have a content management system that persists the data of its customers through a useful, password-protected interface.
 

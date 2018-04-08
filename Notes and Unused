@@ -1,7 +1,7 @@
 
 Current commit notepad:
 
-"building configuration files"
+"built out view files structure and made sbw (small business website) database"
 
 
 
@@ -9,3 +9,14 @@ Current commit notepad:
 Reminders:
 
 1. think of an extended feature
+2. make a feature to send an email to the owner if an order is edited
+
+
+Notes:
+Customer does not have view because all customer information is private and handled by the business personnel
+Only business personnel can edit projects
+
+
+
+Unused Code:
+

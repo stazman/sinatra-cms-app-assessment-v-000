@@ -1,15 +1,21 @@
 
 Current commit notepad:
 
-"built out view files structure and made sbw (small business website) database"
+"coded application_controller.rb, coded model files, incl associations"
 
 
+Tasks:
+
+-- make tables with rake tasks
+-- fill out model relationships
+-- fill out application controller
 
 
 Reminders:
 
 1. think of an extended feature
 2. make a feature to send an email to the owner if an order is edited
+3. readme instructions includes setting session secret
 
 
 Notes:

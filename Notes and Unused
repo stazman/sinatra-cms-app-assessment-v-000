@@ -26,3 +26,12 @@ Only business personnel can edit projects
 
 Unused Code:
 
+    # register Sinatra::ActiveRecordExtension
+    # configure do 
+    #     enable :sessions
+    # set :session_secret, "my_secret"
+    # set :views, Proc.new { File.join(root, "../views/") }
+    
+    # set :views, 'app/views' 
+
+

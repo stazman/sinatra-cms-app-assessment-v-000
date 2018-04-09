@@ -33,8 +33,12 @@ class CustomersController < ApplicationController
     end
 
     post '/sessions/login' do
-        @customer = Customer.find_by(email: params["email"], password: params["password"])
-        session[:id] = @customer.id
-        redirect '/customers/index'
+        @customer = Customer.find_by(email: params["email"])
+        if @customer.email && @customer.authenticate(params["password"])
+            session[:id] = @customer.id
+            redirect '/customers/index'
+        else
+            redirect '/sessions/login'
+        end
     end
 end

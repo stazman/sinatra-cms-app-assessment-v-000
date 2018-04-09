@@ -22,14 +22,17 @@ class CustomersController < ApplicationController
         erb :'/'
     end
 
-    post 'registrations' do
+    post '/registrations/signup' do
         @customer = Customer.create(name: params["name"], email: params["email"], password: params["password"])
-        @customer.save
-        session[:id] = @customer.id
-        redirect '/customers/index'
+        if @customer.name && @customer.email && customer.password
+            @customer.save
+            session[:id] = @customer.id
+            redirect '/customer/index'
+        else
+        redirect '/registrations/signup'
     end
 
-    post '/sessions' do
+    post '/sessions/login' do
         @customer = Customer.find_by(email: params["email"], password: params["password"])
         session[:id] = @customer.id
         redirect '/customers/index'

@@ -5,8 +5,8 @@ gem 'activerecord', '5.0'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'thin'
-gem 'tux'
 gem 'require_all'
+gem 'bcrypt'
 
 group :development do
     gem 'shotgun'

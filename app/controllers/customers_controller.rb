@@ -4,10 +4,18 @@ class CustomersController < ApplicationController
         erb :"/registrations/signup"
     end
 
-    get '/customers/:id' do
-        erb :"customers/#{@customer.id}/show"
+    get '/customers/index' do
+        @customer = Customer.find(session[:id])
+        erb :'/customers/index'
     end
 
+    # get '/customers/:id' do
+    #     erb :"customers/#{@customer.id}/show"
+    # end
+
+    get '/sessions/login' do
+        
+    end
 
     post 'registrations' do
         @customer = Customer.create(name: params["name"], email: params["email"], password: params["password"])
@@ -16,5 +24,6 @@ class CustomersController < ApplicationController
         redirect '/customers/:id/show'
     end
 
-
+    post '/sessions' do
+    end
 end

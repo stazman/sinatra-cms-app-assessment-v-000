@@ -30,6 +30,7 @@ class CustomersController < ApplicationController
             redirect '/customer/index'
         else
         redirect '/registrations/signup'
+        end
     end
 
     post '/sessions/login' do

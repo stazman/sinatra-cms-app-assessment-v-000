@@ -1,11 +1,14 @@
 <h1>Make a New Account</h1><br>
 
 <form action="/customers/new" method="POST">
-    <input type="text">
-
-
-
-
-
+    <input type="text" value="customer[customer_first_name]" id="customer_first_name">First Name:</input><br>
+    <input type="text" value="customer[customer_last_name]" id="customer_last_name">Last Name:</input><br>
+    <input type="text" value="customer[email]" id="customer_email">Email(same as username):</input><br>
+    <input type="text" value="customer[password]" id="customer_password">Password:</input><br>
+    <input type="text" value="customer[address]" id="customer_address">Address:</input><br>
+    <input type="text" value="customer[phone_1]" id="customer_phone_1">Phone Number:</input><br>
+    <input type="text" value="customer[phone_2]" id="customer_phone_2">Alternate Phone Number:</input><br>
+    <input type="text" value="customer[fax]" id="customer_fax">Fax Number (optional):</input><br>
+    <input type="submit" id="Submit">
 </form>
 

@@ -6,6 +6,11 @@ Current commit notepad:
 
 Tasks:
 
+
+
+
+Finished Tasks:
+
 -- make tables with rake tasks
 -- migrate files
 -- don't forget to include these in customers table migration:
@@ -22,9 +27,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     end
 end
 
-
-
-Finished Tasks:
 -- fill out model relationships
 -- fill out application controller
 
@@ -41,7 +43,47 @@ Only business personnel can edit projects
 
 
 
-Unused Code:
+Unused Code/code to use:
+
+
+
+
+
+Overview
+The application is designed to let the user to :
+
+Create a new account and sign-in
+Edit his profile page by updating his personal info name & email
+Create a new todo, show todo list, update and delete todos
+Running the app
+fork and clone this repo.
+cd the directory from the terminal
+in the terminal run bundle install to install all required gems
+run shotgun to open the app
+open the local host in your web browser
+start by hitting sign-up button Note You have to enter a proper email to be allowed to signup to the application.
+
+
+source 'http://rubygems.org'
+gem 'sinatra'
+gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
+gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'rake'
+gem 'sinatra-flash'
+gem 'require_all'
+gem 'sqlite3'
+gem 'thin'
+gem 'shotgun'
+gem 'pry'
+gem 'bcrypt'
+gem "tux"
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
+
 
 class AddColumnsToProjects < ActiveRecord::Migration[5.2]
   def change

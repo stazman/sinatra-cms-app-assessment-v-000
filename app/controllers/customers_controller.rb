@@ -1,6 +1,10 @@
 class CustomersController < ApplicationController
     
-    get 
+    get '/customers/new' 
+        @customer = Customer.create()
+        erb :'/customers/new'
+    end 
+
 
 
 end

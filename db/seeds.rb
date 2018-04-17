@@ -12,22 +12,18 @@ customers = [
   end
 
   customer_list = [
-      {first_name: 'Bob', last_name: 'Smith', email: 'bob_smith999998@smithmail.com', password: 'customer_password_1', address: 
-        '123 Main Street, Smithville, OH 63120', phone_1: '555-231-5555', phone_2: '123-456-7890' fax: '980-765-4321', admin_id: 
-      }
+      {first_name: 'Bob', last_name: 'Smith', email: 'bob_smith999998@smithmail.com', password: 'customer_password_1', address: '123 Main Street, Smithville, OH 63120', phone_1: '555-231-5555', phone_2: '123-456-7890' fax: '980-765-4321'}
     ]
 
+  customer_list each do |i|
+     Customer.create(i)
+  end
+    
+  order_list = [
+    {kind_of_service: 'repair', order_actual_charges: '50.12', order_estimated_charges: '55.00', materials_used: 'none', materials_cost: '0.00', labor_hours: '2', labor_cost: "46.00", service_specialist_1: 'Dale Johnson', service_specialist_2: 'Frank Piazza', service_specialist_3: "", service_specialist_4: ""}
+  ]
 
-    t.string "kind_of_service"
-    t.float "order_actual_charges"
-    t.float "order_estimated_charges"
-    t.string "materials_used"
-    t.float "materials_cost"
-    t.float "labor_hours"
-    t.float "labor_cost"
-    t.string "service_specialist_1"
-    t.string "service_specialist_2"
-    t.string "service_specialist_3"
-    t.string "service_specialist_4"
-    t.string "admin_id"
-    t.integer "customer_id"
+  order_list each do |i|
+    Order.create(i)
+  end
+

@@ -8,9 +8,6 @@ Tasks:
 
 
 
--- change customer_notes to :admin_id
--- change order_notes to :admin_id
-
 -- add username to customers table if need to
 -- delete duplicate views if necessary
 
@@ -19,6 +16,8 @@ Tasks:
 
 Finished Tasks:
 
+-- change customer_notes to :admin_id
+-- change order_notes to :admin_id
 -- make tables with rake tasks
 -- migrate files
 -- don't forget to include these in customers table migration:

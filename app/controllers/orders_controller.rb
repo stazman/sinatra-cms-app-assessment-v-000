@@ -14,7 +14,4 @@ class OrdersController < ApplicationController
         @order.save
         redirect '/show_order'
     end
-
-    
-
 end

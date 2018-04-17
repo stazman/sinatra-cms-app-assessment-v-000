@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_192913) do
+ActiveRecord::Schema.define(version: 2018_04_17_212817) do
 
   create_table "admins", force: :cascade do |t|
     t.string "admin_username"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_04_17_192913) do
     t.string "phone_1"
     t.string "phone_2"
     t.string "fax"
-    t.string "admin_id"
+    t.integer "admin_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2018_04_17_192913) do
     t.string "service_specialist_2"
     t.string "service_specialist_3"
     t.string "service_specialist_4"
-    t.string "admin_id"
     t.integer "customer_id"
+    t.integer "admin_id"
   end
 
 end

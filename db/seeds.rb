@@ -3,27 +3,19 @@ customers = [
     {fname: 'Jane', lname: 'Doe', email: 'e@example.com'}
   ]
   
-  users.each do |u|
-    User.create(u)
+  admins_list = [
+      {admin_username: 'smallbizadmin', password:, admin_password: 'admin_password_1', customer_notes_date: '4/17/2018', customer_notes: 'This customer has a large plantation-style home that he plans to renovate in the next few months.', order_notes_date: '4/16/2018', order_notes: 'This order was for a small repair in wooden fencing.'}
+  ]
+  
+  admins_list each do |i|
+    Admin.create(i)
   end
 
-  admins_list = [{admin_username: 'smallbizadmin', password:, admin_password: 'admin_password_1'
-  t.string "customer_notes_date"
-  t.string "customer_notes"
-  t.string "order_notes_date"
-  t.string "order_notes"
-
-
-  t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.string "password_digest"
-    t.string "address"
-    t.string "phone_1"
-    t.string "phone_2"
-    t.string "fax"
-    t.string "admin_id"
+  customer_list = [
+      {first_name: 'Bob', last_name: 'Smith', email: 'bob_smith999998@smithmail.com', password: 'customer_password_1', address: 
+        '123 Main Street, Smithville, OH 63120', phone_1: '555-231-5555', phone_2: '123-456-7890' fax: '980-765-4321', admin_id: 
+      }
+    ]
 
 
     t.string "kind_of_service"

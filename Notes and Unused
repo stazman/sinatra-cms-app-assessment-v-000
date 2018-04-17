@@ -52,6 +52,13 @@ Only business personnel can edit projects
 
 Unused Code/code to use:
 
+class RenameColumns < ActiveRecord::Migration[5.2]
+  def change
+    rename_column :customers, :customer_notes, :admin_id
+    rename_column :orders, :order_notes, :admin_id
+  end
+end
+
   admin_username
   admin_password
   customer_notes_date

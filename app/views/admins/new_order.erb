@@ -1,5 +1,28 @@
-<h1>Make a New Order for <%= @customer.first_name %><%= @customer.last_name %></h1>
+<h1>Make a New Order for <%= @customer.first_name %> <%= @customer.last_name %> Account Number <%= @customer.id %></h1>
 
-<%# show customer name
-show order information %>
-<%# ask if this is part of an existing project? %>
+<form>
+    <label>
+    <label>Date of Order:</label>
+    <input type="date" name="order[date]" id="date"></br>
+    <label>Kind of Service (choose one)</label>
+        <% @kinds_of_service = ["renovation", "repair", "landscaping/hardscaping"] %>
+        <%= @kinds_of_service.each do |kos| %>
+            <input type="radio" name="kos" value="<%= kos %>" id="<%= kos %>" <%= 'checked' if kos %>></input><br>
+        <% end %>
+    <label>Estimated Charges:</label>
+    <input type="text" name="order[order_estimated_charges]" id="order_estimated_charges"><br>
+    <label>Actual Charges (to be filled in after job):</label>
+    <input type="text" name="order[order_actual_charges]" id="order_actual_charges"><br>
+    <label>Materials Used:</label>
+    <input type="textarea" name="order[materials_used]" id="order_estimated_charges"><br>
+    <label>Estimated Charges:</label>
+    <input type="text" name="order[materials_cost]" id="materials_cost"><br>
+    <label>Service Specialist/s:</label>
+    <input type="text" name="order[service_specialist_1]" id="service_specialist_1"><br>
+    <input type="text" name="order[service_specialist_2]" id="service_specialist_2"><br>
+    <input type="text" name="order[service_specialist_3]" id="service_specialist_3"><br>
+    <input type="text" name="order[service_specialist_4]" id="service_specialist_4"><br>
+    <label>Notes on this order:</label>
+    <input type="textarea" name="order[order_notes]" id="order_notes"><br>
+    <input type-"submit" id="Submit">
+</form>

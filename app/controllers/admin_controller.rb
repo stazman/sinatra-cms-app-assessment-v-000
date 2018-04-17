@@ -12,7 +12,7 @@ class AdminController < ApplicationController
         erb :'/admin/login'
     end
 
-    
+
 
     get '/admin/new_order' do
         erb :'/admin/new_order'
@@ -34,11 +34,8 @@ class AdminController < ApplicationController
     end
 
     post '/admin/:id' do
-        @@order = Order.find(customer_first_name: params["customer_first_name"], customer_last_name: params["customer_last_name"], email: params["email"], password: params["password"], address: params["address"], phone_1: params["phone_1"], phone_2: params["phone_2"], fax: params["fax"])
-        @order.save
+        @order = Order.find(customer_first_name: params["customer_first_name"], customer_last_name: params["customer_last_name"], email: params["email"], password: params["password"], address: params["address"], phone_1: params["phone_1"], phone_2: params["phone_2"], fax: params["fax"])
+        @order.update
+        redirect '/admin/customers_and_orders'
     end
-
-
-
-
 end

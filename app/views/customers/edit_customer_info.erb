@@ -1,1 +1,12 @@
-<h1>Edit Your User Information</h1>
+<h1>Edit User Information for <%= @customer.id %></h1>
+
+<form action="/admin/<%= @customer.id %>" method="POST">
+    <input type="hidden" value="hidden" name="_method" id="edit_customer_info"> 
+    <label>First Name:</label>
+    <input type="text" name="customer[first_name]" value="<%= @customer.first_name %>" id="first_name">
+    <label>Last Name:</label>
+    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name">
+    <label>Email:</label>
+    <input type="text" name="customer[email]" value="<%= @customer.email %>" id="customer_email">
+    <input type="submit" id="Edit Customer Info">
+</form>

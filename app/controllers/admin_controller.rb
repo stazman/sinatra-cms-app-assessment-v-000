@@ -1,7 +1,5 @@
 class AdminController < ApplicationController
 
-    private
-
     get '/admin/signup' do
 
 

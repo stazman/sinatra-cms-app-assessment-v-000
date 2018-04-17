@@ -12,7 +12,7 @@
     <label>Kind of Service (choose one)</label>
         <% @kinds_of_service = ["renovation", "repair", "landscaping/hardscaping"] %>
         <%= @kinds_of_service.each do |kos| %>
-            <input type="radio" name="kos" value="<%= kos %>" id="<%= kos %>" <%= 'checked' if kos %>></input><br>
+            <input type="radio" name="kos" value="<%= kos %>" id="<%= kos %>">
         <% end %>
     <label>Estimated Charges:</label>
     <input type="text" name="order[order_estimated_charges]" id="order_estimated_charges"><br>

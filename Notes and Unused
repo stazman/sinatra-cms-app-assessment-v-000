@@ -6,9 +6,16 @@ Current commit notepad:
 
 Tasks:
 
--- make date of note columns where there are Notes
--- make date of order column where orders are made
--- add username to customers table
+-- add :admin_id keys to customers orders
+-- change customer_notes to :admin_id
+-- change order_notes to customer_order_notes
+
+-- add date of note columns where there are Notes
+-- add date of order column where orders are made
+-- add username to customers table if need to
+-- delete duplicate views if necessary
+
+
 
 
 Finished Tasks:
@@ -46,6 +53,13 @@ Only business personnel can edit projects
 
 
 Unused Code/code to use:
+
+  <input type="text" name="admin_username" placeholder="username">
+  <input type="text" name="admin_password" placeholder="password">
+  admin_order_notes
+  admin_customer_notes
+
+
 
 class AdminsController < ApplicationController
 

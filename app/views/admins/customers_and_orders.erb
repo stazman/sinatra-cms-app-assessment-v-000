@@ -1,0 +1,36 @@
+<h1>Customers and Orders</h1>
+
+Click on each customer's Account Number to see the customer's Information:<br>
+<% @customers.all.each do |customer| %>
+<label>Account Number:</label>
+<%= customer.id %><br>
+<label>Account Number:</label>
+<%= customer.first_name %><br>
+<label>Account Number:</label>
+<%= customer.last_name %><br>
+<label>Account Number:</label>
+<%= customer.email %><br>
+<label>Account Number:</label>
+<%= customer.address %><br>
+<label>Account Number:</label>
+<%= customer.phone_1 %><br>
+<label>Account Number:</label>
+<%= customer.phone_2 %><br>
+<label>Account Number:</label>
+<%= customer.fax %><br>
+<label>Customer Notes:</label>
+<%= customer.customer_notes %>
+<% end %>
+
+<h3>Make a note about this customer:</h3><br>
+<form>
+<input type="textarea" name="customer[customer_notes" id="customer_notes">
+
+<input type="submit" id="Submit">
+</form>
+
+
+
+
+
+

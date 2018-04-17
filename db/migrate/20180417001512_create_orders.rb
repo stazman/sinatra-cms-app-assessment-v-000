@@ -13,7 +13,6 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :service_specialist_3
       t.string :service_specialist_4
       t.string :order_notes
-      t.integer :project_id
       t.integer :customer_id        
     end
   end

@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_14_235658) do
+ActiveRecord::Schema.define(version: 2018_04_17_001512) do
 
   create_table "customers", force: :cascade do |t|
-    t.string "customer_first_name"
-    t.string "customer_last_name"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
     t.string "password"
     t.string "password_digest"
@@ -38,16 +38,6 @@ ActiveRecord::Schema.define(version: 2018_04_14_235658) do
     t.string "service_specialist_3"
     t.string "service_specialist_4"
     t.string "order_notes"
-    t.integer "project_id"
-    t.integer "customer_id"
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.string "project_name"
-    t.string "project_location"
-    t.float "project_actual_charges"
-    t.float "project_estimated_charges"
-    t.string "project_notes"
     t.integer "customer_id"
   end
 

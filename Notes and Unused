@@ -197,3 +197,9 @@ class ApplicationController < Sinatra::Base
   end
 
 end
+
+
+Future Features:
+
+-- Make admin able to make a new customer account
+-- add ability to edit a note

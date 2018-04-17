@@ -1,4 +1,4 @@
 class Order < ActiveRecord::Base
-    belongs_to :projects
-    belongs_to :customers
+    belongs_to :admin
+    belongs_to :customer
 end

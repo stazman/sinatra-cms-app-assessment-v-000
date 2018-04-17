@@ -1,3 +1,19 @@
 <h1>All of Your Orders</h1>
 
-<h2><%= @customer.orders.each do |order| %>
+    <% @customer.orders.each do |order|%>
+        <label>Order Number:</label>
+        <h2><%= order.id %></h2><br>
+        <label>Date:</label>
+        <h2><%= order.date %></h2><br>
+        <label>Kind of Service:</label>
+        <h3><%= order.kind_of_service %></h3><br>
+        <label>Estimated Charges:</label>
+        <h3><%= order.order_estimated_charges %></h3><br>
+        <label>Actual:</label>
+        <h3><%= order.order_actual_charges %></h3><br>
+        <label>Service Specialist/s:</label>
+        <h3><%= order.service_specialist_1 %></h3><br>
+        <h3><%= order.service_specialist_2 %></h3><br>
+        <h3><%= order.service_specialist_3 %></h3><br>
+        <h3><%= order.service_specialist_4 %></h3><br>
+    <% end %>    

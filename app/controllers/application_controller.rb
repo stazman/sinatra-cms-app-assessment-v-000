@@ -3,7 +3,7 @@ class ApplicationController < Sinatra::Base
     
     enable :sessions
     
-    set :public_folder, 'public'
+    # set :public_folder, 'public'
     set :session_secret, "my_secret"
     set :views, Proc.new { File.join(root, "../views/") }
      

@@ -1,12 +1,22 @@
-<h1>Edit User Information for <%= @customer.id %></h1>
+<h1>Edit User Information for <%= @customer.id %></h1><br>
 
 <form action="/admin/<%= @customer.id %>" method="POST">
     <input type="hidden" value="hidden" name="_method" id="edit_customer_info"> 
     <label>First Name:</label>
-    <input type="text" name="customer[first_name]" value="<%= @customer.first_name %>" id="first_name">
+    <input type="text" name="customer[first_name]" value="<%= @customer.first_name %>" id="first_name"><br>
     <label>Last Name:</label>
-    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name">
+    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name"><br>
     <label>Email:</label>
-    <input type="text" name="customer[email]" value="<%= @customer.email %>" id="customer_email">
+    <input type="text" name="customer[email]" value="<%= @customer.email %>" id="customer_email"><br>
+    <label>Password:</label>
+    <input type="text" name="customer[password]" value="<%= @customer.password %>" id="customer_password"><br>
+    <label>Address:</label>
+    <input type="text" name="customer[address]" value="<%= @customer.address %>" id="address"><br>
+    <label>Phone:</label>
+    <input type="text" name="customer[phone_1]" value="<%= @customer.phone_1 %>" id="phone_1"><br>
+    <label>Alt. Phone:</label>
+    <input type="text" name="customer[phone_2]" value="<%= @customer.phone_2 %>" id="phone_2"><br>
+    <label>Fax:</label>
+    <input type="text" name="customer[fax]" fax="<%= @customer.fax %>" id="fax">
     <input type="submit" id="Edit Customer Info">
 </form>

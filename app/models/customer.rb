@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
     has_many :orders
-    has_many :orders, through: :projects
+    belongs_to :admin
     has_secure_password
 end

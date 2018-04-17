@@ -7,9 +7,9 @@ require './config/environment'
 # end
 
 use Rack::MethodOverride
+use AdminsController
 use CustomersController
 use OrdersController
-use ProjectsController
 run ApplicationController
 
 # :task do 

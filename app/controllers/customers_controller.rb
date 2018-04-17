@@ -18,9 +18,9 @@ class CustomersController < ApplicationController
     end
 
     post '/customers' do
-        @customer = Customer.create(customer_first_name: params["customer_first_name"], customer_last_name: params["customer_last_name"], email: params["email"], password: params["password"], address: params["address"], phone_1: params["phone_1"], phone_2: params["phone_2"], fax: params["fax"])
+        @customer = Customer.create(first_name: params["first_name"], last_name: params["last_name"], email: params["email"], password: params["password"], address: params["address"], phone_1: params["phone_1"], phone_2: params["phone_2"], fax: params["fax"])
         @customer.save
-        redirect '/admin/customers_and_orders'
+        redirect '/customers/all_customer_orders'
     end
 
 end    

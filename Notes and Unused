@@ -6,12 +6,11 @@ Current commit notepad:
 
 Tasks:
 
--- add :admin_id keys to customers orders
--- change customer_notes to :admin_id
--- change order_notes to customer_order_notes
 
--- add date of note columns where there are Notes
--- add date of order column where orders are made
+
+-- change customer_notes to :admin_id
+-- change order_notes to :admin_id
+
 -- add username to customers table if need to
 -- delete duplicate views if necessary
 
@@ -54,10 +53,13 @@ Only business personnel can edit projects
 
 Unused Code/code to use:
 
-  <input type="text" name="admin_username" placeholder="username">
-  <input type="text" name="admin_password" placeholder="password">
-  admin_order_notes
-  admin_customer_notes
+  admin_username
+  admin_password
+  customer_notes_date
+  customer_notes
+  order_notes_date
+  order_notes
+
 
 
 

@@ -1,4 +1,27 @@
-<h1>All of Your Orders</h1>
+<h1>Your Account</h1><br><br>
+
+<h2>Account Number: <%= @customer.id %></h2><br>
+<br>
+<h2>Contact Information:</h2><br>
+
+<label>First Name:</label>
+<%= @customer.first_name %><br>
+<label>Last Name:</label>
+<%= @customer.last_name %><br>
+<label>Email:</label>
+<%= @customer.email %><br>
+<label>Address:</label>
+<%= @customer.address %><br>
+<label>Phone:</label>
+<%= @customer.phone_1 %><br>
+<label>Alt. Phone:</label>
+<%= @customer.phone_2 %><br>
+<label>Fax:</label>
+<%= @customer.fax %><br>
+
+<a href="/customers/edit_customer_info">Edit Customer Info</a>
+
+<h2>All of Your Orders</h2>
 
     <% @customer.orders.each do |order|%>
         <label>Order Number:</label>

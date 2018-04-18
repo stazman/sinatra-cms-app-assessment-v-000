@@ -19,6 +19,11 @@ class CustomersController < ApplicationController
         end
     end
 
+    # get '/customers/:id' do
+    #     @customer = Customer.find(params[:id])
+    #     erb :'/customers/customer_info_and_orders'
+    # end
+
     get '/customers/edit_customer_info' do
         erb :'/customers/edit_customer_info'
     end
@@ -35,7 +40,7 @@ class CustomersController < ApplicationController
         # binding.pry
          if @customer && @customer.authenticate(params[:password])
            session[:user_id] = @ucustomer.id
-           redirect to "/customer/customer_info_and_orders"
+           redirect to "/customer/:id/customer_info_and_orders"
          else
            redirect '/customers/customer_login' 
          end

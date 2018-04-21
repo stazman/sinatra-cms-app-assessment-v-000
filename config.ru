@@ -7,7 +7,7 @@ require './config/environment'
 # end
 
 use Rack::MethodOverride
-use ForAdminsController
+# use ForAdminsController
 use CustomersController
 use OrdersController
 run ApplicationController

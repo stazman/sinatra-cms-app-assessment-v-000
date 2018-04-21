@@ -1,17 +1,23 @@
 class ForAdminsController < ApplicationController
     
-    # get '/orders/new_order' do
-    #     @orders = Order.all.find
-    #     erb :'/orders/customer_orders'
-    # end
+    get '/admins/admin_login' do
+        erb :'/admins/admin_login'
+    end
+    
+    get '/admins/all_customers' do
+        @customers = Customer.all
+        erb :'/admins/all_customers'
+    end
 
-    # get '/orders/:id' do
-    #     erb :'/customers/show'
-    # end
+    post '/admins/admin_login' do
+        @admin = Admin.find(params[:admin_username])
+        if @admin && @admin.authenticate(params[:password])
+            session[:admin_id] = @admin.id
+            redirect "/admins/all_customers" 
+        else
+            redirect "/admins/admin_login"
+        end
+    end
 
-    # post '/orders' do
-    #     @order = Order.create
-    #     @order.save
-    #     redirect '/show_order'
-    # end
+
 end

@@ -1,7 +1,11 @@
-<h1>Log in to your admin account:</h1>
+<h1>Log in to your admin account:</h1><br>
 <form method="post" action="/admins/admin_login">
-  <input type="text" name="admin_username" placeholder="username">
-  <input type="text" name="admin_password" placeholder="password">
+    <label>Admin Username:</label>
+      <input type="text" name="admin_username" placeholder="username"><br>
+    <label>Admin Password:</label>
+      <input type="text" name="admin_password" placeholder="password"><br>
 
-  <input type="submit" value="Log in">
+    <input type="submit" value="Log in"><br><br>
+
+    <a href="/admin/admin_logout">Log out here</a>
 </form>

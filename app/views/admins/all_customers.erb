@@ -1,7 +1,7 @@
 <h1>All Customers</h1>
 
 <h2>Click on each customer's Account Number to see the customer's contact information and any notes about the customer:</h2><br>
-<% @customers.all.each do |customer| %>
+<% @customers.each do |customer| %>
 <h3>Account Number</h3><a href="/customer_orders/<%= customer.id %>"><%= customer.id %></a></h3><br>
 <label>First Name:</label>
 <%= customer.first_name %><br>

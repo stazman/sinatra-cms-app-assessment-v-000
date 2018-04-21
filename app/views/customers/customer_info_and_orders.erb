@@ -1,6 +1,6 @@
 <h1>Your Account</h1><br><br>
 
-<h2>Account Number: <%= @customer.id %></h2><br>
+<%# <h2>Account Number: <%= @customer.id %></h2><br> %>
 <br>
 <h2>Contact Information:</h2><br>
 
@@ -18,6 +18,8 @@
 <%= @customer.phone_2 %><br>
 <label>Fax:</label>
 <%= @customer.fax %><br>
+
+<a href="/logout">Log out here</a>
 
 <a href="/customers/edit_customer_info">Edit Customer Info</a>
 
@@ -40,3 +42,4 @@
         <h3><%= order.service_specialist_3 %></h3><br>
         <h3><%= order.service_specialist_4 %></h3><br>
     <% end %>    
+

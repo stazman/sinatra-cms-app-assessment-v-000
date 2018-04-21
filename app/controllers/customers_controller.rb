@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
     
     get '/customers/customer_login' do
         if logged_in?
-            redirect "/customers/customer_info_and_orders"
+            redirect "/customers/#{@customer.id}/customer_info_and_orders"
         else
             erb :"/customers/customer_login"
         end
@@ -20,25 +20,28 @@ class CustomersController < ApplicationController
     end
  
     get '/customers/:id/edit_customer_info' do
+        @customer = Customer.find_by_id(params[:id])
         erb :'/customers/edit_customer_info'
     end
 
-    get '/customers/:id/logout' do
+    get '/customers/:id/customer_info_and_orders' do
         # @customer = Customer.find_by_id(params[:id])
-        # session[:customer_id] = @customer.id
+        erb :"/customers/customer_info_and_orders"
+    end
+ 
+    get '/customers/:id/logout' do
         session.clear
         redirect "/customers/customer_login"
     end
 
     post '/customers/customer_signup' do
-        if params[:password] == "" || params[:email] == ""
+        if params[:password] == "" || params[:email] == "" || params[:first_name] == "" || params[:last_name] == "" 
             redirect '/customers/customer_signup'
         else
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
             @customer.save
-            # session[:customer_id] = @customer.id
-            redirect "/customers/customer_login"
-            # "/customers/#{@customer.id}"
+            session[:customer_id] = @customer.id
+            redirect "/customers/#{@customer.id}"
         end
     end
 
@@ -52,11 +55,11 @@ class CustomersController < ApplicationController
         end
     end
 
-    post '/customers/edit_customer_info' do
-        @customer = Customer.find(params[:id])
+    patch '/customers/:id' do
+        @customer = Customer.find_by_id(params[:id])
         if logged_in?
             @customer.update(params[:customer])
-            redirect '/customer/customer_info_and_orders'
+            redirect "/customers/#{@customer.id}/customer_info_and_orders"
         else
             redirect '/customers/customer_login'
         end

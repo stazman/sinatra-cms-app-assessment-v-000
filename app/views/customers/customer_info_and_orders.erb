@@ -1,47 +1,44 @@
-<h1>Your Account</h1><br><br>
-
-<%# <h2>Account Number: <%= @customer.id %></h2><br> %>
-<br>
-<h2>Contact Information:</h2><br>
-
+<h1>Your Account</h1><br>
+<h2>Account Number: <%= @customer.id %></h2><br>
+<h3>Contact Information:</h3><br>
 <label>First Name:</label>
-<%= @customer.first_name %><br>
+    <%= @customer.first_name %><br>
 <label>Last Name:</label>
-<%= @customer.last_name %><br>
+    <%= @customer.last_name %><br>
 <label>Email:</label>
-<%= @customer.email %><br>
+    <%= @customer.email %><br>
 <label>Address:</label>
-<%= @customer.address %><br>
+    <%= @customer.address %><br>
 <label>Phone:</label>
-<%= @customer.phone_1 %><br>
+    <%= @customer.phone_1 %><br>
 <label>Alt. Phone:</label>
-<%= @customer.phone_2 %><br>
+    <%= @customer.phone_2 %><br>
 <label>Fax:</label>
-<%= @customer.fax %><br>
+    <%= @customer.fax %><br>
+<br>
+    <% if logged_in? %>
+        <a href = "/customers/<%= @customer.id %>/logout">Log out here</a>
+    <% end %>
+<br><br>
+    <a href="/customers/<%= @customer.id %>/edit_customer_info">Edit Contact Information</a>
 
-<% if logged_in? %>
-<a href = "/customers/<%= @customer.id %>/logout">Log out here</a>
-<% end %>
-
-<a href="/customers/edit_customer_info">Edit Customer Info</a>
-
-<h2>All of Your Orders</h2>
+<h3>All of Your Orders</h3>
 
     <% @customer.orders.each do |order|%>
         <label>Order Number:</label>
         <h2><%= order.id %></h2><br>
         <label>Date:</label>
-        <h2><%= order.order_date %></h2><br>
+        <%= order.order_date %><br>
         <label>Kind of Service:</label>
-        <h3><%= order.kind_of_service %></h3><br>
+            <%= order.kind_of_service %><br>
         <label>Estimated Charges:</label>
-        <h3><%= order.estimated_charges %></h3><br>
+            <%= order.estimated_charges %><br>
         <label>Actual:</label>
-        <h3><%= order.actual_charges %></h3><br>
+            <%= order.actual_charges %><br>
         <label>Service Specialist/s:</label>
-        <h3><%= order.service_specialist_1 %></h3><br>
-        <h3><%= order.service_specialist_2 %></h3><br>
-        <h3><%= order.service_specialist_3 %></h3><br>
-        <h3><%= order.service_specialist_4 %></h3><br>
+            <%= order.service_specialist_1 %><br>
+            <%= order.service_specialist_2 %><br>
+            <%= order.service_specialist_3 %><br>
+            <%= order.service_specialist_4 %><br>
     <% end %>    
 

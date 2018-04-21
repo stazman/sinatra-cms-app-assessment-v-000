@@ -16,8 +16,8 @@ class ApplicationController < Sinatra::Base
           !!session[:customer_id]
         end
     
-        def current_user
-          Customer.find_by_id(session[:customer_id])
-        end
+        # def current_user
+        #   Customer.find_by_id(session[:customer_id])
+        # end
     end
 end

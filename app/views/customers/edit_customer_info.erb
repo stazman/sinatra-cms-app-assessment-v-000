@@ -1,7 +1,7 @@
 <h1>Edit User Information</h1><br>
 
-<form action="/customers/edit_customer_info" method="POST">
-    <input type="hidden" value="hidden" name="_method" id="edit_customer_info"> 
+<form action="/customers/<%= @customer.id %>" method="POST">
+    <input type="hidden" value="PATCH" name="_method"> 
     <label>First Name:</label>
     <input type="text" name="customer[first_name]" value="<%= @customer.first_name %>" id="first_name"><br>
     <label>Last Name:</label>
@@ -17,6 +17,6 @@
     <label>Alt. Phone:</label>
     <input type="text" name="customer[phone_2]" value="<%= @customer.phone_2 %>" id="phone_2"><br>
     <label>Fax:</label>
-    <input type="text" name="customer[fax]" fax="<%= @customer.fax %>" id="fax">
+    <input type="text" name="customer[fax]" value="<%= @customer.fax %>" id="fax">
     <input type="submit" id="Edit Customer Info">
 </form>

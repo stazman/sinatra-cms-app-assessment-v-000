@@ -10,16 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_221626) do
+ActiveRecord::Schema.define(version: 2018_04_21_202956) do
 
   create_table "admins", force: :cascade do |t|
     t.string "admin_username"
-    t.string "admin_password"
-    t.string "customer_notes_date"
-    t.string "customer_notes"
-    t.string "order_notes_date"
-    t.string "order_notes"
     t.string "password_digest"
+    t.string "password"
   end
 
   create_table "customers", force: :cascade do |t|

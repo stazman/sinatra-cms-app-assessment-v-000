@@ -4,16 +4,20 @@ class ForAdminsController < ApplicationController
         erb :'/admins/admin_login'
     end
     
+    get '/admins/:id' do
+        erb :'/admins/admin_info'
+    end
+
     get '/admins/all_customers' do
         @customers = Customer.all
         erb :'/admins/all_customers'
     end
 
     post '/admins/admin_login' do
-        @admin = Admin.find(params[:admin_username])
+        @admin = Admin.find_by(admin_username: params[:admin_username])
         if @admin && @admin.authenticate(params[:password])
             session[:admin_id] = @admin.id
-            redirect "/admins/all_customers" 
+            redirect "/admins/#{@admin.id}/admin_info" 
         else
             redirect "/admins/admin_login"
         end

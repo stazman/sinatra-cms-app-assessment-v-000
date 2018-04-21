@@ -23,7 +23,7 @@ class CustomersController < ApplicationController
         erb :'/customers/edit_customer_info'
     end
 
-    get '/customers/logout' do
+    get '/customers/:id/logout' do
         # @customer = Customer.find_by_id(params[:id])
         # session[:customer_id] = @customer.id
         session.clear
@@ -37,14 +37,14 @@ class CustomersController < ApplicationController
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
             @customer.save
             # session[:customer_id] = @customer.id
-            redirect "/customers/#{@customer.id}"
+            redirect "/customers/customer_login"
+            # "/customers/#{@customer.id}"
         end
     end
 
     post '/customers/customer_login' do
         @customer = Customer.find_by(email: params[:email])
         if @customer && @customer.authenticate(params[:password])
-            redirect "/customers/customer_info_and_orders"
             session[:customer_id] = @customer.id
             redirect "/customers/#{@customer.id}"
         else

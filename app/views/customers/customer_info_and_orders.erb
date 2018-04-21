@@ -19,7 +19,9 @@
 <label>Fax:</label>
 <%= @customer.fax %><br>
 
-<a href="/logout">Log out here</a>
+<% if logged_in? %>
+<a href = "/customers/<%= @customer.id %>/logout">Log out here</a>
+<% end %>
 
 <a href="/customers/edit_customer_info">Edit Customer Info</a>
 

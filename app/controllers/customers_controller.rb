@@ -20,12 +20,12 @@ class CustomersController < ApplicationController
     end
  
     get '/customers/:id/edit_customer_info' do
-        @customer = Customer.find_by_id(params[:id])
+        @customer = Customer.find(params[:id])
         erb :'/customers/edit_customer_info'
     end
 
     get '/customers/:id/customer_info_and_orders' do
-        # @customer = Customer.find_by_id(params[:id])
+        @customer = Customer.find(params[:id])
         erb :"/customers/customer_info_and_orders"
     end
  
@@ -56,7 +56,7 @@ class CustomersController < ApplicationController
     end
 
     patch '/customers/:id' do
-        @customer = Customer.find_by_id(params[:id])
+        @customer = Customer.find(params[:id])
         if logged_in?
             @customer.update(params[:customer])
             redirect "/customers/#{@customer.id}/customer_info_and_orders"

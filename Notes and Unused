@@ -6,13 +6,14 @@ Current commit notepad:
 
 Tasks:
 
--- delete duplicate views if necessary
+-- make order views only available through specific email address/usernames
 
 
 
 
 Finished Tasks:
 
+-- delete duplicate views if necessary
 -- add sessions and encryption
 -- add username to customers table if need to
 -- change customer_notes to :admin_id

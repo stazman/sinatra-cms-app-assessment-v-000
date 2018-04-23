@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
 
     get '/orders/:id' do
         erb :'/orders/customer_orders'
-        erb :'/customers/show'
     end
 
     post '/orders/create_order' do

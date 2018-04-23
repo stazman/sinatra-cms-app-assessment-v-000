@@ -45,12 +45,30 @@ Reminders:
 
 
 Notes:
-Customer does not have view because all customer information is private and handled by the business personnel
-Only business personnel can edit projects
 
 
 
 Unused Code/code to use:
+
+        <%# <label>Estimated Charges:</label>
+            <%= order.estimated_charges %><br>
+        <%# <label>Actual:</label>
+            <%= order.actual_charges %><br>
+        <%# <label>Service Specialist/s:</label>
+            <%= order.service_specialist_1 %><br>
+            <%# <%= order.service_specialist_2 %><br>
+            <%# <%= order.service_specialist_3 %><br> %>
+            <%# <%= order.service_specialist_4 %><br> %> %> %>
+
+<form action='/orders/<%= @order.id %>' method='DELETE'>
+    <h1>To make changes to an order, please call 555-555-5555 or send an email to ???</h1>
+    <label>To delete an order, choose an order number below and click on "Delete"</label>
+    <% @orders.each do |kos| %>
+    <input type="radio" name="kind_of_service" value="<%= kos.id %>" id="<%= kos.name %>" <%= 'checked' if @order.kind_of_service.include?(kos) %>></input>
+  <% end
+
+</form> %>
+
 
      <h3>Account Number: <%= @customer.id %> </h3><br><br>
     <h3>Order Number: <%= @order.id %> </h3><br><br>

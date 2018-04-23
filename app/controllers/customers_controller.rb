@@ -27,7 +27,12 @@ class CustomersController < ApplicationController
 
     get '/customers/:id/customer_info_and_orders' do
         @customer = Customer.find(params[:id])
-        erb :"/customers/customer_info_and_orders"
+        erb :"/customers/customer_info"
+    end
+
+    get '/customers/:id/customer_orders' do
+        
+        erb :'/customers/customer_orders'
     end
  
     get '/customers/:id/logout' do

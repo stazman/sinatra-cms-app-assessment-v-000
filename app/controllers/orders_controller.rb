@@ -21,11 +21,11 @@ class OrdersController < ApplicationController
         redirect "/orders/#{@order.id}"
     end
 
-    get '/orders/customer_orders' do
-        # @customer = Customer.find(params[:id])
-        @orders = Order.all.where(customer_id: @customer.id)
-        erb :'/orders/customer_orders'
-    end
+    # get '/orders/customer_orders' do
+    #     # @customer = Customer.find(params[:id])
+    #     @orders = Order.all.where(customer_id: @customer.id)
+    #     erb :'/orders/customer_orders'
+    # end
 
 
 end

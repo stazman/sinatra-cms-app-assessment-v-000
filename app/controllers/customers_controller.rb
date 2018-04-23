@@ -31,7 +31,9 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id/customer_orders' do
-        
+        # @customer = Customer.find(params[:id])
+        @orders = Order.where(customer_id: sessions[:customer_id])
+        binding.pry
         erb :'/customers/customer_orders'
     end
  

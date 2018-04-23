@@ -1,15 +1,10 @@
 <h1>Your New Order</h1>
 
-    <%# <h3>Account Number: <%= @customer.id %> 
-    <%# <h3>Name: <%= @customer.first_name %>
-    <%# <%= @customer.last_name %>
     <h3>Order Number: <%= @order.id %> </h3><br><br>
     
-        <h2><%= @order.date %></h2><br>
+        <h2><%= @order.order_date %></h2><br>
         <h3><%= @order.kind_of_service %></h3><br>
         <h3><%= @order.order_description %></h3><br>
-
-     <% end %>    
 
     <a href="/orders/edit_order">Edit the order here</a><br><br>
     <a href="/orders/edit_order">Delete the order here</a>

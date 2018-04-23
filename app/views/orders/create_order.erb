@@ -2,6 +2,13 @@
 
 <form>
     <label>Account Number:</label>
+    Show Account number, not a field to enter
+    Show custome rfirst name and last name, not a field to enter
+    make date be current date (and maybe time), not a field to enter
+    The only fields to enter are kind of service and description
+    cost info not included
+    email will be automatically sent to admin
+    admin will be able to see individual order as well as columns not viewable by customer
     <input type="text" name="customer[customer_id]" id="customer_id"><br>
     <label>Customer First Name:</label>
     <input type="text" name="first_name" id="first_name"><br>
@@ -13,8 +20,17 @@
         <% @kinds_of_service = ["renovation", "repair", "landscaping/hardscaping"] %>
         <%= @kinds_of_service.each do |kos| %>
             <input type="radio" name="kos" value="<%= kos %>" id="<%= kos %>">
-        <% end %>
-    <label>Estimated Charges:</label>
+        <% end %><br><br>
+    <label>Please tell us a description of your project:</label><br>
+    <input type="textarea" name="order_description" id="order_notes"><br><br>
+    <input type="submit" id="Submit Your Order"><br><br>
+    <a href="/orders/edit_order">Edit your order here</a><br><br>
+    
+
+
+
+
+    <%# <label>Estimated Charges:</label>
     <input type="text" name="order[order_estimated_charges]" id="order_estimated_charges"><br>
     <label>Actual Charges (to be filled in after job is finished):</label>
     <input type="text" name="order[order_actual_charges]" id="order_actual_charges"><br>
@@ -31,5 +47,5 @@
     <label>Date:</label>
     <input type="text" name="admin[order_notes_date]" id="order_notes_date"><br>
     <input type="textarea" name="admin[order_notes]" id="order_notes"><br>
-    <input type-"submit" id="Submit">
+    <input type-"submit" id="Submit"> %>
 </form>

@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
     
     get '/orders/create_order' do
         if logged_in?
-            @orders = Order.all
             erb :'/orders/create_order'
         else
             redirect '/customers/customer_login'

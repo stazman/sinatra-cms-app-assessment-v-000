@@ -52,6 +52,24 @@ Only business personnel can edit projects
 
 Unused Code/code to use:
 
+     <h3>Account Number: <%= @customer.id %> </h3><br><br>
+    <h3>Order Number: <%= @order.id %> </h3><br><br>
+    
+        <h2><%= order.date %></h2><br>
+        <h3><%= order.kind_of_service %></h3><br>
+        <h3><%= order.order_estimated_charges %></h3><br>
+        <h3><%= order.order_actual_charges %></h3><br>
+        <h3><%= order.materials_used %></h3><br>
+        <h3><%= order.materials_cost %></h3><br>
+        <h3><%= order.labor_hours %></h3><br>
+        <h3><%= order.labor_cost %></h3><br>
+        <h3><%= order.service_specialist_1 %></h3><br>
+        <h3><%= order.service_specialist_2 %></h3><br>
+        <h3><%= order.service_specialist_3 %></h3><br>
+        <h3><%= order.service_specialist_4 %></h3><br>
+        <h3><%= order.order_note_date %></h3><br>
+        <h3><%= order.order_note %></h3><br>
+
   # admin_list = [
   #     {admin_username: 'smallbizadmin', admin_password: 'admin_password_1', customer_notes_date: '4/17/2018', customer_notes: 'This customer has a large plantation-style home that he plans to renovate in the next few months.', order_notes_date: '4/16/2018', order_notes: 'This order was for a small repair in wooden fencing.'}
   # ]

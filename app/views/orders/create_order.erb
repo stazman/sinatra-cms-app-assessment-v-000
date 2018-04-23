@@ -1,25 +1,14 @@
+        <%# <%= binding.pry %>
 <h1>Make a New Order</h1>
 
 <form>
-    <%# <label>Account Number: <%= @customer.id %></label>
-    <%# Show Account number, not a field to enter
-    Show custome rfirst name and last name, not a field to enter
-    make date be current date (and maybe time), not a field to enter
-    The only fields to enter are kind of service and description
-    cost info not included
-    email will be automatically sent to admin
-    admin will be able to see individual order as well as columns not viewable by customer %>
-    <%# <label>First Name:</label>
-        <%= @customer.first_name %><br>
-    <%# <label>Last Name:</label>
-        <%# <%= @customer.last_name %>
     <label>Date of Order:</label>
         <input type="date" name="order_date" id="order_date"><br><br>
-    <label>Kind of Service</label>
-        <% @kinds_of_service.each do |kos| %>
-            <input type="radio" name="<%= kos %>" value="<%= kos %>" id="<%= kos %>">
+    <label>Kind of Service (choose as many as apply): </label>
+        <% ["renovation", "repair", "landscaping"].each do |kos| %>
+            <input type="checkbox" name="<%= kos %>" value="<%= kos %>" id="<%= kos %>">  <%= kos %>  </input>
         <% end %><br><br>
     <label>Please tell us a description of your project:</label><br>
-    <textarea type="textarea" name="order_description" id="customer_order_description"><br><br>
+    <textarea type="textarea" name="order_description" id="customer_order_description" cols="80" rows="10"></textarea><br><br>
     <input type="submit" id="Submit"><br><br>
 </form>

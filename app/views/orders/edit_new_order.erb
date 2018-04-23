@@ -1,0 +1,17 @@
+h1>Edit User Information</h1><br>
+
+<form action="/customers/edit_new_order<%= @customer.id %>" method="POST">
+    <input type="hidden" value="PATCH" name="_method"> 
+    <label>First Name:</label>
+<% @order.each do |kos| %>
+    <label>Kind of Service:</label>
+    
+    <input type="radio" name="kind_of_service" value="<%= kos.id %>" id="<%= kos.name %>" <%= 'checked' if @order.kind_of_service.include?(kos) %>></input>
+  <% end %>
+
+  <input type="submit" value="Save">
+
+    <label>Order Description:</label>
+    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name"><br>
+    <input type="submit" id="Edit Order">
+</form>

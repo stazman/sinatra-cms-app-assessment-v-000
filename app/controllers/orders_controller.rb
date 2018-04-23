@@ -1,20 +1,12 @@
 class OrdersController < ApplicationController
     
-    get '/orders/customer_orders' do
-        if logged_in?
-            @orders = Order.all
-            erb :'/orders/customer_orders'
-        else
-            redirect '/customers/customer_login'
-        end
-    end
 
     get '/orders/create_order' do
         erb :'/orders/create_order'
     end
 
     get '/orders/:id' do
-        @order = Order.find(params[:id])
+        @order = Order.find_by_id(params[:id])
         erb :'/orders/show_new_order'
     end
 

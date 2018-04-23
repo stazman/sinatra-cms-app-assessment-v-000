@@ -16,8 +16,8 @@ class CustomersController < ApplicationController
 
     get '/customers/:id' do
         @customer = Customer.find(params[:id])
-        @orders = Order.where(customer_id: @customer.id)
-        erb :"/customers/customer_info_and_orders"
+        # @orders = Order.where(customer_id: @customer.id)
+        erb :"/customers/customer_info"
     end
  
     get '/customers/:id/edit_customer_info' do

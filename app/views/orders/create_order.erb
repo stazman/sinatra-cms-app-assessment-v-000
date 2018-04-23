@@ -1,7 +1,8 @@
         <%# <%= binding.pry %>
 <h1>Make a New Order</h1>
 
-<form>
+<form action="/orders/create_order" method="POST">
+    
     <label>Date of Order:</label>
         <input type="date" name="order_date" id="order_date"><br><br>
     <label>Kind of Service (choose as many as apply): </label>

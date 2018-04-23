@@ -27,13 +27,6 @@
 
 <h3>All of Your Orders</h3>
 
-<form action='/orders/<%= @order.id %>' method='DELETE'>
-    <h1>To make changes to an order, please call 555-555-5555 or send an email to ???</h1>
-    <label>To delete an order, choose an order number below and click on "Delete"</label>
-    <% @orders.each do |order| %>
-        <input type='radio' name='<%= order.id %>' value='<%= order.id %>' id='<%= order.id %>'><% checked if %>
-       <% end %>
-</form>
 
     <% @orders.each do |order|%>
         <h2>Order Number:</h2>

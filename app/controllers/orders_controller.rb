@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     end
 
     post '/orders/create_order' do
-        @order = Order.create(kind_of_service: params[:kind_of_service]))
+        @order = Order.create(kind_of_service: params[:kind_of_service])
         @order.save
         erb :'/customers/customer_info_and_orders'
     end

@@ -14,6 +14,12 @@ class OrdersController < ApplicationController
         erb :'/orders/show_new_order'
     end
 
+    get '/orders/:id/customer_orders' do
+        @customer = Customer.find(params[:id])
+        @orders = Order.where(customer_id: @customer.id)
+        erb :'/orders/customer_orders'
+    end
+
     post '/orders/create_order' do
         @order = Order.create(order_date: params[:order_date], kind_of_service: params[:kind_of_service], order_description: params[:order_description], customer_id: session[:customer_id])
         @order.save

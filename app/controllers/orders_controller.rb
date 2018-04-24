@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         if logged_in? && @order.customer_id == current_user.id
           @order.delete
-          redirect "/customers/#{current_user.id}/customer_info"
+          redirect "/customers/#{current_user.id}/customer_orders"
         else
           redirect '/login'
         end

@@ -7,7 +7,14 @@
         <h3><%= @order.order_description %></h3><br><br>
 
     <a href="/orders/<%= @order.id %>/edit_new_order">Edit the order here</a><br><br>
-    <a href="/orders/edit_order">Delete the order here</a><br><br>
+    
+    <form method="post" action="/orders/<%= @order.id%>/delete">
+        <input type="hidden" name="_method" id="hidden" value="DELETE">
+        <input type="submit" value="Delete New Order">
+    <br><br>
+
+
+    <%# <a href="/orders/edit_order">Delete the order here</a><br><br> %>
     <a href="/customers/:id/customer_orders">See your order history here</a>
 
 

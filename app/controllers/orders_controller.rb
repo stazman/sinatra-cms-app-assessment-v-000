@@ -31,11 +31,15 @@ class OrdersController < ApplicationController
         redirect "/orders/#{@order.id}"
     end
 
-    # get '/orders/customer_orders' do
-    #     # @customer = Customer.find(params[:id])
-    #     @orders = Order.all.where(customer_id: @customer.id)
-    #     erb :'/orders/customer_orders'
-    # end
-
-
+    delete '/orders/:id/delete' do
+        #delete tweet by :id
+        @order = Order.find_by_id(params[:id])
+        #binding.pry
+        if logged_in? && Order.where(:customer_id == current_user)
+          @order.delete
+          redirect "/customers/#{current_user.id}/customer_info"
+        else
+          redirect '/login'
+        end
+    end
 end

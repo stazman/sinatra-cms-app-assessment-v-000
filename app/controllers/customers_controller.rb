@@ -34,10 +34,10 @@ class CustomersController < ApplicationController
         erb :'/customers/edit_customer_info'
     end
 
-    get '/customers/:id/customer_info' do
-        @customer = Customer.find(params[:id])
-        erb :"/customers/customer_info"
-    end
+    # get '/customers/:id/customer_info' do
+    #     @customer = Customer.find(params[:id])
+    #     erb :"/customers/customer_info"
+    # end
  
     get '/customers/:id/logout' do
         session.clear

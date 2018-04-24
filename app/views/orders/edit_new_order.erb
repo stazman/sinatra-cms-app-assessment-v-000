@@ -1,6 +1,6 @@
 h1>Edit User Information</h1><br>
 
-<form action="/customers/edit_new_order<%= @customer.id %>" method="POST">
+<form action="/orders/edit_new_order<%= @customer.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method"> 
     <label>First Name:</label>
 <% @order.each do |kos| %>

@@ -6,11 +6,11 @@ Current commit notepad:
 
 Tasks:
 
--- go over which pages need to be secured and add code to secure the ones that still need it
 
 
 Finished Tasks:
 
+-- go over which pages need to be secured and add code to secure the ones that still need it
 -- add make a new order to customer_orders 
 -- delete duplicate views if necessary
 -- add sessions and encryption
@@ -48,6 +48,13 @@ Notes:
 
 
 Unused Code/code to use:
+
+    # register Sinatra::ActiveRecordExtension
+    
+    enable :sessions
+    
+    # set :public_folder, 'public'
+
 
         <%# <label>Kind of Service (choose as many as apply): </label> %>
             <%# <% ["renovation", "repair", "landscaping"].each do |kos| %> %>

@@ -1,17 +1,29 @@
 class OrdersController < ApplicationController
     
     get '/orders/create_order' do
-        erb :'/orders/create_order'
+        if logged_in?
+            erb :'/orders/create_order'
+        else
+            redirect '/login'
+        end
     end
 
     get '/orders/:id' do
-        @order = Order.find(params[:id])
-        erb :'/orders/show_new_order'
+        if logged_in?
+            @order = Order.find(params[:id])
+            erb :'/orders/show_new_order'
+        else
+            redirect '/login'
+        end
     end
 
     get '/orders/:id/edit_new_order' do
-        @order = Order.find(params[:id])
-        erb :'/orders/edit_new_order'
+        if logged_in?
+            @order = Order.find(params[:id])
+            erb :'/orders/edit_new_order'
+        else
+            redirect '/login'
+        end
     end
 
     post '/orders/create_order' do

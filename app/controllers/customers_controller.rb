@@ -38,7 +38,6 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
         erb :"/customers/customer_info"
     end
-
  
     get '/customers/:id/logout' do
         session.clear
@@ -64,6 +63,7 @@ class CustomersController < ApplicationController
         else
             redirect "/customers/customer_login" 
         end
+
     end
 
     patch '/customers/:id' do

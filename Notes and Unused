@@ -6,10 +6,9 @@ Current commit notepad:
 
 Tasks:
 
--- make order views only available through specific email address/usernames
--- add checked to radio buttons for kind of service .. now not showing up in record made
-
-
+-- add make a new order to customer_orders 
+-- add messaging about editing previous orders ...call office
+-- go over which pages need to be secured and add code to secure the ones that still need it
 
 
 Finished Tasks:

@@ -20,6 +20,15 @@ class CustomersController < ApplicationController
         erb :"/customers/customer_info"
     end
  
+    get '/customers/:id/customer_orders' do
+        if logged_in? && current_user
+            @orders = Order.where(:customer_id == current_user)
+            erb :'/customers/customer_orders'
+        else
+            redirect "/customers/customer_login"
+        end
+    end
+
     get '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
         erb :'/customers/edit_customer_info'
@@ -30,14 +39,6 @@ class CustomersController < ApplicationController
         erb :"/customers/customer_info"
     end
 
-    get '/customers/:id/customer_orders' do
-        if logged_in? && current_user
-            @orders = Order.all
-            erb :'/customers/customer_orders'
-        else
-            redirect "/customers/customer_login"
-        end
-    end
  
     get '/customers/:id/logout' do
         session.clear

@@ -1,19 +1,10 @@
-<h1>Edit New Order</h1><br>
+<h1>Edit Your New Order</h1><br><br>
 
-<form action="/orders/#{@order.id}/edit_new_order" method="POST">
+<form action="/orders/<%= @order.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method"> 
-    <label>First Name:</label>
-<% @order.each do |kos| %>
-    <label>Kind of Service (choose as many as apply): </label>
-        <input type="checkbox" name="<%= kos %>" value="<%= kos %>" id="<%= kos %>">  <%= kos %>  </input>
-        <% end %><br><br>
-    
-    <input type="radio" name="kind_of_service" value="<%= kos.id %>" id="<%= kos.name %>" <%= 'checked' if @order.kind_of_service.include?(kos) %>></input>
-  <% end %>
-
-  <input type="submit" value="Save">
-
-    <label>Order Description:</label>
-    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name"><br>
-    <input type="submit" id="Edit Order">
+        <label>Date of Order:</label>
+            <input type="date" name="order_date" id="order_date"><br><br>
+        <label>Please tell us a description of your project:</label><br>
+            <textarea type="textarea" name="order_description" id="customer_order_description" cols="80" rows="10"></textarea><br><br>
+        <input type="submit" id="Edit Order">
 </form>

@@ -27,8 +27,8 @@ class OrdersController < ApplicationController
 
     patch '/orders/:id' do
         @order = Order.find(params[:id])
-        @order.update(params[:order])
-        redirect "/orders/#{@order.id}/show_new_order"
+        @order.update(order_date: params[:order_date], order_description: params[:order_description])
+        redirect "/orders/#{@order.id}"
     end
 
     # get '/orders/customer_orders' do

@@ -51,6 +51,13 @@ Notes:
 
 Unused Code/code to use:
 
+        <%# <label>Kind of Service (choose as many as apply): </label> %>
+            <%# <% ["renovation", "repair", "landscaping"].each do |kos| %> %>
+                <%# <input type="checkbox" name="<%= kos %>" value="<%= kos %>" id="<%= kos %>" <%= 'checked' if @order.kind_of_service.include?(kos)%> <%= kos %>  </input> %>
+            <%# <% end %> %>
+            <br><br>
+
+
 <h1>All Orders for <%= @customer.id %></h1>
 
     <% @customer.orders.each do |order|%>

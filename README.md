@@ -2,6 +2,8 @@ Small Business Website With User Accounts
 
 This web app allows even a small business to have a content management system that persists the data of its customers through a useful, password-protected interface.
 
+There are a lot of links to make sure customers know how to navigate the website easily.
+
 Note: This is meant mostly for small businesses that offer services rather than products. 
 
 

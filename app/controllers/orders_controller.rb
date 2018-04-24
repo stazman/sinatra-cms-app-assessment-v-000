@@ -33,9 +33,9 @@ class OrdersController < ApplicationController
 
     delete '/orders/:id/delete' do
         #delete tweet by :id
-        @order = Order.find_by_id(params[:id])
+        @order = Order.find(params[:id])
         #binding.pry
-        if logged_in? && Order.where(:customer_id == current_user)
+        if logged_in? && @order.customer_id == current_user.id
           @order.delete
           redirect "/customers/#{current_user.id}/customer_info"
         else

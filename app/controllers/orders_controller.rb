@@ -2,11 +2,11 @@ class OrdersController < ApplicationController
     
 
     get '/orders/create_order' do
-        if logged_in
+        # if logged_in
             erb :'/orders/create_order'
-        else
-            redirect "/customers/customer_login"
-        end
+        # else
+        #     redirect "/customers/customer_login"
+        # end
     end
 
     get '/orders/:id' do

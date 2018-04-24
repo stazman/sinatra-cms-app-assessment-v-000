@@ -22,7 +22,7 @@ class CustomersController < ApplicationController
  
     get '/customers/:id/customer_orders' do
         if logged_in? && current_user
-            @orders = Order.where(:customer_id == current_user)
+            @orders = Order.where(customer_id: current_user)
             erb :'/customers/customer_orders'
         else
             redirect "/customers/customer_login"

@@ -2,8 +2,7 @@
 
     <h3>Order Number: <%= @order.id %> </h3><br><br>
     
-        <h2><%= @order.order_date %></h2><br>
-        <h3><%= @order.kind_of_service %></h3><br>
+        <h2><%= @order.order_date %></h2><br><br>
         <h3><%= @order.order_description %></h3><br><br>
 
     <a href="/orders/<%= @order.id %>/edit_new_order">Edit the order here</a><br><br>

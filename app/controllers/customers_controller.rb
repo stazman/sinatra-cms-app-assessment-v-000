@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
     
     get '/customers/customer_login' do
         if logged_in?
-            redirect "/customers/#{@customer.id}/customer_info_and_orders"
+            redirect "/customers/#{@customer.id}/customer_info"
         else
             erb :"/customers/customer_login"
         end
@@ -70,7 +70,7 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
         if logged_in?
             @customer.update(params[:customer])
-            redirect "/customers/#{@customer.id}/customer_info_and_orders"
+            redirect "/customers/#{@customer.id}/customer_info"
         else
             redirect '/customers/customer_login'
         end

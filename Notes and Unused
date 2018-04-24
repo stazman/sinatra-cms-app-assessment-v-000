@@ -6,13 +6,12 @@ Current commit notepad:
 
 Tasks:
 
--- add make a new order to customer_orders 
--- add messaging about editing previous orders ...call office
 -- go over which pages need to be secured and add code to secure the ones that still need it
 
 
 Finished Tasks:
 
+-- add make a new order to customer_orders 
 -- delete duplicate views if necessary
 -- add sessions and encryption
 -- add username to customers table if need to

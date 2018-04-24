@@ -2,10 +2,8 @@
 
 <form action="/orders/<%= @order.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method"> 
-        <h3>Order Number: <%= @order.id %></h3><br><br><br>
-
-        <label>Date of Order:</label>
-            <input type="date" name="order_date" value="<%= @order.order_date %>" id="order_date"><br><br>
+        <h3>Order Number: <%= @order.id %></h3><br>
+    <h3>(Edited) Date of Order: <%= Date.today %></h3><br>
         <label>Please tell us a description of your project:</label><br>
             <input style="height:150px;width:600px;font-size:10pt;" 
             <textarea type="textarea" name="order_description" id="customer_order_description" value="<%= @order.order_description %>" cols="80" rows="10"><br><br>

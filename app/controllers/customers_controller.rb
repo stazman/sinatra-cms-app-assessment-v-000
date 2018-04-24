@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
         # @orders = Order.where(customer_id: @customer.id)
         erb :"/customers/customer_info"
     end
- 
+
     get '/customers/:id/customer_orders' do
         if logged_in? && current_user
             @orders = Order.where(customer_id: current_user)
@@ -34,6 +34,11 @@ class CustomersController < ApplicationController
         erb :'/customers/edit_customer_info'
     end
 
+    # get '/customers/:id/edit_customer_info' do
+    #     @customer = Customer.find(params[:id])
+    #     erb :'/customers/edit_customer_info'
+    # end
+ 
     # get '/customers/:id/customer_info' do
     #     @customer = Customer.find(params[:id])
     #     erb :"/customers/customer_info"

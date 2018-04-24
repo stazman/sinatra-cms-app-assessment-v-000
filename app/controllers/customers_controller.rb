@@ -1,14 +1,16 @@
-require 'pry'
-
 class CustomersController < ApplicationController
 
-    get '/customers/customer_signup' do      
-        erb :"/customers/customer_signup"
+    get '/customers/customer_signup' do 
+        if logged_in?
+            redirect "/"
+        else
+            erb :"/customers/customer_signup"
+        end
     end
     
     get '/customers/customer_login' do
         if logged_in?
-            redirect "/customers/#{@customer.id}/customer_info"
+            redirect "/"
         else
             erb :"/customers/customer_login"
         end
@@ -16,7 +18,6 @@ class CustomersController < ApplicationController
 
     get '/customers/:id' do
         @customer = Customer.find(params[:id])
-        # @orders = Order.where(customer_id: @customer.id)
         erb :"/customers/customer_info"
     end
 
@@ -34,11 +35,6 @@ class CustomersController < ApplicationController
         erb :'/customers/edit_customer_info'
     end
 
-    # get '/customers/:id/edit_customer_info' do
-    #     @customer = Customer.find(params[:id])
-    #     erb :'/customers/edit_customer_info'
-    # end
- 
     get '/customers/:id/customer_info' do
         @customer = Customer.find(params[:id])
         erb :"/customers/customer_info"

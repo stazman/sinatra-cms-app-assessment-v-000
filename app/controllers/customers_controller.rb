@@ -39,10 +39,10 @@ class CustomersController < ApplicationController
     #     erb :'/customers/edit_customer_info'
     # end
  
-    # get '/customers/:id/customer_info' do
-    #     @customer = Customer.find(params[:id])
-    #     erb :"/customers/customer_info"
-    # end
+    get '/customers/:id/customer_info' do
+        @customer = Customer.find(params[:id])
+        erb :"/customers/customer_info"
+    end
  
     get '/customers/:id/logout' do
         session.clear
@@ -72,8 +72,9 @@ class CustomersController < ApplicationController
 
     end
 
-    patch '/customers/:id' do
+    patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
+        # binding.pry
         if logged_in?
             @customer.update(params[:customer])
             redirect "/customers/#{@customer.id}/customer_info"

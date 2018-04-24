@@ -62,6 +62,7 @@ class CustomersController < ApplicationController
 
     post '/customers/customer_login' do
         @customer = Customer.find_by(email: params[:email])
+
         if @customer && @customer.authenticate(params[:password])
             session[:customer_id] = @customer.id
             redirect "/customers/#{@customer.id}"

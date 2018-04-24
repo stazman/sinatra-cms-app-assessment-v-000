@@ -14,11 +14,10 @@ class OrdersController < ApplicationController
         erb :'/orders/show_new_order'
     end
 
-    get '/customers/:id/edit_customer_info' do
-        @customer = Customer.find(params[:id])
-        erb :'/customers/edit_customer_info'
+    get '/orders/:id/edit_new_order' do
+        @order = Order.find(params[:id])
+        erb :'/orders/edit_new_order'
     end
-
 
     post '/orders/create_order' do
         @order = Order.create(order_date: params[:order_date], kind_of_service: params[:kind_of_service], order_description: params[:order_description], customer_id: session[:customer_id])
@@ -26,14 +25,10 @@ class OrdersController < ApplicationController
         redirect "/orders/#{@order.id}"
     end
 
-    patch '/customers/:id' do
-        @customer = Customer.find(params[:id])
-        if logged_in?
-            @customer.update(params[:customer])
-            redirect "/customers/#{@customer.id}/customer_info_and_orders"
-        else
-            redirect '/customers/customer_login'
-        end
+    patch '/orders/:id' do
+        @order = Order.find(params[:id])
+        @order.update(params[:order])
+        redirect "/orders/#{@order.id}/show_new_order"
     end
 
     # get '/orders/customer_orders' do

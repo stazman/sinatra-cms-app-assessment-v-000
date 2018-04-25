@@ -1,10 +1,13 @@
 class Customer < ActiveRecord::Base
     has_many :orders
     has_secure_password
-    # EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\z/i
+    EMAIL_REGEX = /(?!.*@.*@)+[a-z0-9A-Z#!$%&'*+-\/=?_`{|}~;]+([A-Za-z]).*\1[a-z0-9A-Z]+.+[a-zA-Z]/
     validates :email,
-                    uniqueness: false
-                    # :format => EMAIL_REGEX
-                        # message: "must be an email address in correct email format" }
+                    uniqueness: false,
+                    #This says that if the email is NOT unique, then .errors will be true
+                    format: { with: EMAIL_REGEX,
+                        message: "only allows letters" }
+
+                    # format: EMAIL_REGEX, "must be an email address in correct email format" }
 end
 

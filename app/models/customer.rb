@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
     has_secure_password
     validates :email, presence: true,
                     uniqueness: true,
-                    format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+                    format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
                         message: "must be an email address in correct email format" }
 end
 

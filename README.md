@@ -19,7 +19,7 @@ To run the app, follow these steps:
 5. Open the local host in your web browser and you will be directed to the index page.
 6. On the index page, start the account process by clicking the link to sign up for an account. 
 
-Contributors are welcome to add pull requests to this project.
+Contributors are welcome to make pull requests for this project.
 
 The license for the code in this app is a GNU General Public License and may be found at this link: 
 (https://docs.google.com/forms/d/e/1FAIpQLSdIrS7g6y_B4dAY7HGS4yAndg9bfHuw7GmsiwA6MQXXqNrDjA/viewform?entry.237262577&entry.835010005&entry.301147721)

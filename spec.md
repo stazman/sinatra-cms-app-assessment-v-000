@@ -13,6 +13,9 @@ Specs:
 - [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
+https://github.com/stazman/small-business-website-with-user-accounts/blob/master/LICENSE
+
+
 Confirm
 - [x] You have a large number of small Git commits
 - [x] Your commit messages are meaningful

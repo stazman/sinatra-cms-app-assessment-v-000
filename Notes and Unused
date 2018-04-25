@@ -6,6 +6,9 @@ Current commit notepad:
 
 Tasks:
 
+            <% if @email.errors.any? %>
+            <%= puts "Email address invalid. Please try again."%>
+            <% end %>
 
 
 Finished Tasks:

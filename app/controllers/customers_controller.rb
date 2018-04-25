@@ -49,12 +49,11 @@ class CustomersController < ApplicationController
         if params[:password] == "" || params[:email] == "" || params[:first_name] == "" || params[:last_name] == "" 
             redirect '/registrations/customer_signup'
         else
-            Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
-            if Customer.last.errors
-                Customer.last.destroy
+            @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
+            if @customer.errors
+                @customer.destroy
                 redirect '/registrations/customer_signup'
             else
-                @customer = Customer.last
                 @customer.save
                 session[:customer_id] = @customer.id
                 redirect "/customers/#{@customer.id}"

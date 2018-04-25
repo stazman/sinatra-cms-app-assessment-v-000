@@ -1,6 +1,6 @@
         <%# <%= binding.pry %>
 <h1>Make a New Order</h1>
-<h4>We will contact you within one business day of your order.</h4>
+<h4>We will contact you by phone and email within one business day of your order to make an appointment.</h4>
 
 <form action="/orders/create_order" method="POST">
     
@@ -8,6 +8,6 @@
 
         <input type="hidden" name="order_date" id="order_date"><br><br>
     <label>Please tell us a description of your project:</label><br>
-    <textarea type="textarea" name="order_description" id="customer_order_description" cols="80" rows="10"></textarea><br><br>
+        <textarea type="textarea" name="order_description" id="customer_order_description" cols="80" rows="10"></textarea><br><br>
     <input type="submit" id="Submit"><br><br>
 </form>

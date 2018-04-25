@@ -59,8 +59,6 @@ class CustomersController < ApplicationController
                 redirect "/customers/#{@customer.id}"
             end
         end
-                    binding.pry
-
     end
 
     post '/sessions/customer_login' do

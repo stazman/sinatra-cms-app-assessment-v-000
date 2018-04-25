@@ -50,9 +50,11 @@ class CustomersController < ApplicationController
             redirect '/registrations/customer_signup'
         else
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
+            @email = Customer.email
             @customer.save
             session[:customer_id] = @customer.id
             redirect "/customers/#{@customer.id}"
+            
         end
     end
 

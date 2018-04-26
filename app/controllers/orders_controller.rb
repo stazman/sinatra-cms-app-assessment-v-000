@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
             @order = Order.find(params[:id])
             erb :'/orders/show_new_order'
         else
-            
             redirect '/login'
         end
     end

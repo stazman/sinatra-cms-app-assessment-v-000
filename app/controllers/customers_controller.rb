@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
 
     get '/registrations/customer_signup' do 
         if logged_in?
+            flash[:message] = "Please sign up or log in."
             redirect "/"
         else
             erb :"/registrations/customer_signup"
@@ -14,6 +15,7 @@ class CustomersController < ApplicationController
     
     get '/sessions/customer_login' do
         if logged_in?
+            flash[:message] = "Please sign up or log in."
             redirect "/"
         else
             erb :"/sessions/customer_login"
@@ -30,6 +32,7 @@ class CustomersController < ApplicationController
             @orders = Order.where(customer_id: current_user)
             erb :'/customers/customer_orders'
         else
+            flash[:message] = "Please sign up or log in."
             redirect "/sessions/customer_login"
         end
     end

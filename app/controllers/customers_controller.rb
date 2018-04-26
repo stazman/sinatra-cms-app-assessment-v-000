@@ -50,25 +50,19 @@ class CustomersController < ApplicationController
             redirect '/registrations/customer_signup'
         else
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
-            if @customer.errors.any?
+            if @customer.errors.any? || !/(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
                 @customer.destroy
                 redirect '/registrations/customer_signup'
             else
                 @customer.save
                 session[:customer_id] = @customer.id
                 redirect "/customers/#{@customer.id}"
-
-            # @email_check = Customer.new(email: params[:email])
-            #     unless @email_check.errors.any?
-            #         # @email_check.destroy
-            #         redirect '/registrations/customer_signup'
             end
         end
     end
 
     post '/sessions/customer_login' do
         @customer = Customer.find_by(email: params[:email])
-
         if @customer && @customer.authenticate(params[:password])
             session[:customer_id] = @customer.id
             redirect "/customers/#{@customer.id}"
@@ -80,7 +74,6 @@ class CustomersController < ApplicationController
 
     patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
-        # binding.pry
         if logged_in?
             @customer.update(params[:customer])
             redirect "/customers/#{@customer.id}/customer_info"

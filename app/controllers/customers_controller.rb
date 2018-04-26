@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class CustomersController < ApplicationController
+    
+    use Rack::Flash
 
     get '/registrations/customer_signup' do 
         if logged_in?

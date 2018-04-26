@@ -73,7 +73,7 @@ class CustomersController < ApplicationController
             session[:customer_id] = @customer.id
             redirect "/customers/#{@customer.id}"
         else
-            flash[:message] = "Please re-enter your log-in information. If you continue to have problems, please contact the Small Business Office at 555-555-5555."
+            flash[:message] = "Please log in. If you have trouble logging in, please contact the Small Business Office at 555-555-5555."
             redirect "/sessions/customer_login" 
         end
 
@@ -85,7 +85,8 @@ class CustomersController < ApplicationController
             @customer.update(params[:customer])
             redirect "/customers/#{@customer.id}/customer_info"
         else
-            flash[:message] = "Please enter your log-in information."
+            flash[:message] = "Please log in."
+            redirect "/sessions/customer_login" 
         end
     end
 end 

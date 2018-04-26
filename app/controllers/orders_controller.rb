@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
         if logged_in?
             erb :'/orders/create_order'
         else
+            flash[:message] = "Please log in. If you have trouble logging in, please contact the Small Business Office at 555-555-5555."
             redirect '/login'
         end
     end
@@ -17,6 +18,7 @@ class OrdersController < ApplicationController
             @order = Order.find(params[:id])
             erb :'/orders/show_new_order'
         else
+            
             redirect '/login'
         end
     end
@@ -51,6 +53,7 @@ class OrdersController < ApplicationController
           @order.delete
           redirect "/customers/#{current_user.id}/customer_orders"
         else
+          flash[:message] = "Please log in."
           redirect '/login'
         end
     end

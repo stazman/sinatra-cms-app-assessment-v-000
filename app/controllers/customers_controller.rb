@@ -74,8 +74,8 @@ class CustomersController < ApplicationController
 
     patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
-        if logged_in? || !/(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
-            @customer.update(params[:customer])
+        if logged_in? 
+            @customer.update(params[:customer]) unless !/(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
             redirect "/customers/#{@customer.id}/customer_info"
         else
             flash[:message] = "Please log in."

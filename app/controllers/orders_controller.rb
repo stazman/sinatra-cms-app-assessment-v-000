@@ -16,7 +16,9 @@ class OrdersController < ApplicationController
     end
 
     post '/orders/create_order' do
-        @order = Order.create(order_date: params[:order_date], order_description: params[:order_description], customer_id: session[:customer_id])
+
+        @order = Order.create(order_description: params[:order_description], customer_id: session[:customer_id])
+        @order.order_date = Date.today
         @order.save
         redirect "/orders/#{@order.id}"
     end

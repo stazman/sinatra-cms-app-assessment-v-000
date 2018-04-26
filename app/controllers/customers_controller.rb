@@ -5,21 +5,11 @@ class CustomersController < ApplicationController
     use Rack::Flash
 
     get '/registrations/customer_signup' do 
-        if logged_in?
-            flash[:message] = "Please sign up or log in."
-            redirect "/"
-        else
-            erb :"/registrations/customer_signup"
-        end
+        erb :"/registrations/customer_signup"
     end
     
     get '/sessions/customer_login' do
-        if logged_in?
-            flash[:message] = "Please sign up or log in."
-            redirect "/"
-        else
-            erb :"/sessions/customer_login"
-        end
+        erb :"/sessions/customer_login"
     end
 
     get '/customers/:id' do
@@ -84,7 +74,7 @@ class CustomersController < ApplicationController
 
     patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
-        if logged_in?
+        if logged_in? || !/(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
             @customer.update(params[:customer])
             redirect "/customers/#{@customer.id}/customer_info"
         else

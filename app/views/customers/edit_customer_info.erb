@@ -3,19 +3,19 @@
 <form action="/customers/<%= @customer.id %>/edit_customer_info" method="POST">
     <input type="hidden" value="PATCH" name="_method"> 
     <label>First Name:</label>
-    <input type="text" name="customer[first_name]" value="<%= @customer.first_name %>" id="first_name"><br>
+    <input type="text" name="customer[first_name]" value="<%= @customer.first_name %>" id="first_name" placeholder="(required)"><br>
     <label>Last Name:</label>
-    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name"><br>
+    <input type="text" name="customer[last_name]" value="<%= @customer.last_name %>" id="last_name" placeholder="(required)"><br>
     <label>Email:</label>
-    <input type="text" name="customer[email]" value="<%= @customer.email %>" id="customer_email"><br>
+    <input type="text" name="customer[email]" value="<%= @customer.email %>" id="customer_email" placeholder="(required)"><br>
     <label>Password:</label>
-    <input type="text" name="customer[password]" value="<%= @customer.password %>" id="customer_password"><br>
+    <input type="text" name="customer[password]" value="<%= @customer.password %>" id="customer_password" placeholder="(required)"><br>
     <label>Address:</label>
-    <input type="text" name="customer[address]" value="<%= @customer.address %>" id="address"><br>
+    <input type="text" name="customer[address]" value="<%= @customer.address %>" id="address" placeholder="(required)"><br>
     <label>Phone:</label>
-    <input type="text" name="customer[phone_1]" value="<%= @customer.phone_1 %>" id="phone_1"><br>
+    <input type="text" name="customer[phone_1]" value="<%= @customer.phone_1 %>" id="phone_1" placeholder="(required)"><br>
     <label>Alt. Phone:</label>
-    <input type="text" name="customer[phone_2]" value="<%= @customer.phone_2 %>" id="phone_2"><br>
+    <input type="text" name="customer[phone_2]" value="<%= @customer.phone_2 %>" id="phone_2" placeholder="(required)"><br>
     <label>Fax:</label>
     <input type="text" name="customer[fax]" value="<%= @customer.fax %>" id="fax"><br><br>
     <input type="submit" id="Edit Customer Info">

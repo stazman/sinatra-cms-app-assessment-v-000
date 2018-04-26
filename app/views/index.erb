@@ -1,5 +1,10 @@
 <h1>Welcome to Our Small Business!</h1><br>
 
+<% if flash.has?(:message) %>
+  <p><%= flash[:message] %></p>
+<% end %>
+<br><br>
+
 <h2>Make an account or log in for access to all of your orders and to see some special offers!</h2><br>
 
 <a href="/registrations/customer_signup">Sign up here</a><br><br>

@@ -86,6 +86,7 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
         if logged_in?
             @customer.update(params[:customer])
+            flash[:message] = "Contact Information Successfully Edited."
             redirect "/customers/#{@customer.id}/customer_info"
         else
             flash[:message] = "Please log in."

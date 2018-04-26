@@ -50,6 +50,7 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         if logged_in? && @order.customer_id == current_user.id
           @order.delete
+          flash[:message] = "Service Order Successfully Deleted."
           redirect "/customers/#{current_user.id}/customer_orders"
         else
           flash[:message] = "Please log in."

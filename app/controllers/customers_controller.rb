@@ -46,7 +46,7 @@ class CustomersController < ApplicationController
     end
 
     post '/registrations/customer_signup' do
-        if params[:password] == "" || params[:email] == "" || params[:first_name] == "" || params[:last_name] == "" 
+        if params[:password] == "" || params[:email] == "" || params[:first_name] == "" || params[:last_name] == "" || params[:address] == "" || params[:phone_1] == ""
             redirect '/registrations/customer_signup'
         else
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    

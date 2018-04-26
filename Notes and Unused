@@ -12,6 +12,12 @@ Current commit notepad:
 
 Tasks:
 
+1. finish out all signup fields not to be left blank
+2. make match code for email format in controller
+3. make flash messages throughout code or use below code/different view to make error messages
+4. final run through
+5. final project steps
+
             <% if @email.errors.any? %>
             <%= puts "Email address invalid. Please try again."%>
             <% end %>

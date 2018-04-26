@@ -13,8 +13,12 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id' do
-        @customer = Customer.find(params[:id])
-        erb :"/customers/customer_info"
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :"/customers/customer_info"
+        else
+            redirect '/login'
+        end
     end
 
     get '/customers/:id/customer_orders' do
@@ -28,13 +32,21 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id/edit_customer_info' do
-        @customer = Customer.find(params[:id])
-        erb :'/customers/edit_customer_info'
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :'/customers/edit_customer_info'
+        else
+            redirect '/login'
+        end
     end
 
     get '/customers/:id/customer_info' do
-        @customer = Customer.find(params[:id])
-        erb :"/customers/customer_info"
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :"/customers/customer_info"
+        else
+            redirect '/login'
+        end
     end
  
     get '/customers/:id/logout' do
@@ -76,10 +88,6 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
         email_regex = /[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/
         if logged_in?
-            # if 
-            #     flash[:message] = "Please enter an email that is valid and new to this website."
-            #     redirect "/customers/#{@customer.id}/customer_info"
-            # else
             @customer.update(params[:customer]) 
             if @customer.errors.any? 
                 flash[:message] = "Please enter an email that is valid and new to this website."

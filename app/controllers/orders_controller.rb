@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class OrdersController < ApplicationController
+    
+    use Rack::Flash
     
     get '/orders/create_order' do
         if logged_in?

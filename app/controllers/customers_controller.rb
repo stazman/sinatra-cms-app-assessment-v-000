@@ -1,7 +1,7 @@
 require 'rack-flash'
 
 class CustomersController < ApplicationController
-    
+
     use Rack::Flash
 
     get '/registrations/customer_signup' do 
@@ -51,11 +51,13 @@ class CustomersController < ApplicationController
 
     post '/registrations/customer_signup' do
         if params[:password] == "" || params[:email] == "" || params[:first_name] == "" || params[:last_name] == "" || params[:address] == "" || params[:phone_1] == ""
+            flash[:message] = "First Name, Last Name, Email, Password, Address, and Phone Number are required."
             redirect '/registrations/customer_signup'
         else
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
             if @customer.errors.any? || !/(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
                 @customer.destroy
+                flash[:message] = "Please enter an email that is valid and new to this website."
                 redirect '/registrations/customer_signup'
             else
                 @customer.save
@@ -71,6 +73,7 @@ class CustomersController < ApplicationController
             session[:customer_id] = @customer.id
             redirect "/customers/#{@customer.id}"
         else
+            flash[:message] = "Please re-enter your log-in information. If you continue to have problems, please contact the Small Business Office at 555-555-5555."
             redirect "/sessions/customer_login" 
         end
 
@@ -82,7 +85,7 @@ class CustomersController < ApplicationController
             @customer.update(params[:customer])
             redirect "/customers/#{@customer.id}/customer_info"
         else
-            redirect '/sessions/customer_login'
+            flash[:message] = "Please enter your log-in information."
         end
     end
 end 

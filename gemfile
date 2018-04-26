@@ -14,5 +14,5 @@ group :development do
     gem 'pry'
     gem 'tux'
     gem 'sqlite3'
-    gem 'gem rack-flash'
+    gem 'rack-flash'
 end

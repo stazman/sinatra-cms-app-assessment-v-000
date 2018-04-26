@@ -9,26 +9,16 @@ Current commit notepad:
 
 "debugging for login controller"
 
-<% if flash.has?(:message) %>
-  <p><%= flash[:message] %></p>
-<% end %>
-<br><br>
-
-
 
 Tasks:
 
-3. make flash messages throughout code or use below code/different view to make error messages
-4. final run through
+4. final run throughs
 5. final project steps
-
-            <% if @email.errors.any? %>
-            <%= puts "Email address invalid. Please try again."%>
-            <% end %>
 
 
 Finished Tasks:
 
+3. make flash messages throughout code or use below code/different view to make error messages
 -- 2. make match code for email format in controller
 -- 1. finish out all signup fields not to be left blank
 -- go over which pages need to be secured and add code to secure the ones that still need it
@@ -69,6 +59,16 @@ Notes:
 
 
 Unused Code/code to use:
+
+            <% if @email.errors.any? %>
+            <%= puts "Email address invalid. Please try again."%>
+            <% end %>
+
+<% if flash.has?(:message) %>
+  <p><%= flash[:message] %></p>
+<% end %>
+<br><br>
+
 
     # register Sinatra::ActiveRecordExtension
     

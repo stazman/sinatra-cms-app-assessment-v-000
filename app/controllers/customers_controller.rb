@@ -74,12 +74,15 @@ class CustomersController < ApplicationController
 
     patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
-        if logged_in? 
-            @customer.update(params[:customer]) unless !/(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
+        if logged_in? && /([a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z])/.match(@customer.email)
+            @customer.update(params[:customer]) 
             redirect "/customers/#{@customer.id}/customer_info"
-        else
-            flash[:message] = "Please log in."
+        elsif !logged_in? && /([a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z])/.match(@customer.email)
+            flash[:message] = "Please log in. If you have trouble logging in, please contact the Small Business Office at 555-555-5555."
             redirect "/sessions/customer_login" 
+        elsif logged_in? && !/([a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z])/.match(@customer.email)
+            flash[:message] = "Please enter an email that is valid and new to this website."
+            redirect "/customers/#{@customer.id}/customer_info"
         end
     end
 end 

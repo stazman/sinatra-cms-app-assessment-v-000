@@ -74,15 +74,21 @@ class CustomersController < ApplicationController
 
     patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
-        EMAIL_REGEX = /[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/
+        email_regex = /[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/
         if logged_in?
+            # if 
+            #     flash[:message] = "Please enter an email that is valid and new to this website."
+            #     redirect "/customers/#{@customer.id}/customer_info"
+            # else
             @customer.update(params[:customer]) 
-            redirect "/customers/#{@customer.id}/customer_info"
-        elsif logged_in? && EMAIL_REGEX != true
-            flash[:message] = "Please enter an email that is valid and new to this website."
-            redirect "/customers/#{@customer.id}/customer_info"
+            if @customer.errors.any? 
+                flash[:message] = "Please enter an email that is valid and new to this website."
+                redirect "/customers/#{@customer.id}/customer_info"
+            else @customer.email.last != @customer.email 
+                redirect "/customers/#{@customer.id}/customer_info"
+            end
         else 
-           flash[:message] = "Please log in. If you have trouble logging in, please contact the Small Business Office at 555-555-5555."
+            flash[:message] = "Please log in. If you have trouble logging in, please contact the Small Business Office at 555-555-5555."
             redirect "/sessions/customer_login" 
         end
     end

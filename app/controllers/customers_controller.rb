@@ -48,7 +48,6 @@ class CustomersController < ApplicationController
             redirect '/login'
         end
     end
-    end
  
     get '/customers/:id/logout' do
         session.clear

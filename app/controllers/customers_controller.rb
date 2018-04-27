@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id' do
-        if logged_in?
+        if logged_in? 
             @customer = Customer.find(params[:id])
             erb :"/customers/customer_info"
         else
@@ -22,8 +22,8 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id/customer_orders' do
-        if logged_in? && current_user
-            @orders = Order.where(customer_id: current_user)
+        if logged_in? 
+            @orders = Order.where(customer_id: current_customer)
             erb :'/customers/customer_orders'
         else
             flash[:message] = "Please sign up or log in."
@@ -47,6 +47,7 @@ class CustomersController < ApplicationController
         else
             redirect '/login'
         end
+    end
     end
  
     get '/customers/:id/logout' do

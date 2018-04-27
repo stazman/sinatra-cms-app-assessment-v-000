@@ -40,10 +40,14 @@ class OrdersController < ApplicationController
 
     patch '/orders/:id' do
         @order = Order.find(params[:id])
-        @order.update(order_description: params[:order_description]) unless @order.customer_id != current_customer
-        @order.order_date = Date.today
-        @order.save
-        redirect "/orders/#{@order.id}"
+        if @order.customer_id == current_customer
+            @order.update(order_description: params[:order_description]) 
+            @order.order_date = Date.today
+            @order.save
+            redirect "/orders/#{@order.id}"
+        else
+            redirect "/"
+        end
     end
 
     delete '/orders/:id/delete' do

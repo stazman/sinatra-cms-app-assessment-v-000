@@ -60,6 +60,18 @@ Notes:
 
 Unused Code/code to use:
 
+    <br><br>
+    <% if !Order.id.last %>
+        <%= puts "Order has been successfully deleted." %>
+    <% else %>
+        <button onclick="goBack()">Go back to edit new order</button>
+    <% end %>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script><br><br>        
+
 # EMAIL_REGEX = /(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/
 
 

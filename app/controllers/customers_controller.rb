@@ -13,11 +13,11 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id' do
-        @customer = Customer.find(params[:id])
         if logged_in?
+            @customer = Customer.find(params[:id])
             erb :"/customers/customer_info"
         else
-            erb :"/sessions/customer_login"
+            redirect '/login'
         end
     end
 
@@ -32,17 +32,21 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/:id/edit_customer_info' do
-        @customer = Customer.find(params[:id])
         if logged_in?
+            @customer = Customer.find(params[:id])
             erb :'/customers/edit_customer_info'
         else
-            erb :"/sessions/customer_login"
+            redirect '/login'
         end
     end
 
     get '/customers/:id/customer_info' do
-        @customer = Customer.find(params[:id])
-        erb :"/customers/customer_info"
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :"/customers/customer_info"
+        else
+            redirect '/login'
+        end
     end
  
     get '/customers/:id/logout' do

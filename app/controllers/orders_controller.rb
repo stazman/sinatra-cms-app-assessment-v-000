@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 
     patch '/orders/:id' do
         @order = Order.find(params[:id])
-        if @order.customer_id == session[:customer_id]
+        if @order.customer_id == current_customer.id
             @order.update(order_description: params[:order_description]) 
             @order.order_date = Date.today
             @order.save

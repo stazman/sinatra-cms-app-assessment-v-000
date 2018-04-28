@@ -60,7 +60,7 @@ class CustomersController < ApplicationController
             redirect '/registrations/customer_signup'
         else
             @customer = Customer.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], address: params[:address], phone_1: params[:phone_1], phone_2: params[:phone_2], fax: params[:fax])    
-            if @customer.errors.any? || !/[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/.match(@customer.email)
+            if @customer.errors.any?
                 @customer.destroy
                 flash[:message] = "Please enter an email that is valid and new to this website."
                 redirect '/registrations/customer_signup'
@@ -86,7 +86,6 @@ class CustomersController < ApplicationController
 
     patch '/customers/:id/edit_customer_info' do
         @customer = Customer.find(params[:id])
-        email_regex = /[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/
         if logged_in?
             @customer.update(params[:customer]) 
             if @customer.errors.any? 

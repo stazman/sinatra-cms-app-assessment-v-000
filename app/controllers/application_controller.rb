@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
         end
     
         def current_customer
-        #   Customer.find_by_id(session[:customer_id])
           @current_customer ||= Customer.find(session[:customer_id]) if session[:customer_id]
         end
     end

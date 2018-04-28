@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 
     patch '/orders/:id' do
         @order = Order.find(params[:id])
-        if @order.customer_id == current_customer
+        if @order.customer_id == session[:customer_id]
             @order.update(order_description: params[:order_description]) 
             @order.order_date = Date.today
             @order.save
@@ -48,15 +48,16 @@ class OrdersController < ApplicationController
         else
             redirect "/"
         end
+
     end
 
     delete '/orders/:id/delete' do
         @order = Order.find(params[:id])
-        if logged_in? && @order.customer_id == current_user.id
+        if logged_in? && @order.customer_id == current_customer.id
           @order.delete
           flash[:message] = "Service Order Successfully Deleted."
-          redirect "/customers/#{current_user.id}/customer_orders"
-        else
+          redirect "/customers/#{current_customer.id}/customer_orders"
+        elsif !logged_in?
           flash[:message] = "Please log in."
           redirect '/login'
         end

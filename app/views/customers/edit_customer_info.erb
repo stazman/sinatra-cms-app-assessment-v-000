@@ -3,9 +3,6 @@
   <p><%= flash[:message] %></p>
 <% end %>
 <br><br>
-
-
-
 <form action="/customers/<%= @customer.id %>/edit_customer_info" method="POST">
     <input type="hidden" value="PATCH" name="_method"> 
     <label>First Name:</label>

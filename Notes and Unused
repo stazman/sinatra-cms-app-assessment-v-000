@@ -7,16 +7,17 @@ since beginning to lern how to code, I've struggled to know
 
 Current commit notepad:
 
-"debugging for login controller"
+"protected against deleting any orders that are not the currently deletable one; cleaned up code in various fies; finished spec md file"
 
 
 Tasks:
 
-5. final project steps
+
 
 
 Finished Tasks:
 
+5. final project steps
 4. final run throughs
 3. make flash messages throughout code or use below code/different view to make error messages
 -- 2. make match code for email format in controller
@@ -59,6 +60,27 @@ Notes:
 
 
 Unused Code/code to use:
+
+
+# disable :show_exceptions
+
+# require_relative "../app/controllers/application_controller.rb"
+
+
+# Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
+# Dir[File.join(File.dirname(__FILE__), "../app/controllers", "*.rb")].sort.each {|f| require f}
+
+# configure do
+#   set :public_folder, 'public'
+#   set :views, 'app/views'
+# end
+
+
+                    # :message => "Please enter an email that is valid and new to this website."
+
+                    #???This says that if the email is NOT unique, then .errors will be true
+                    # format: {with: /(?!.*@.*@)+[a-z0-9A-Z!#^$%&'*+-\/=?_`{|}~;]+@+([A-Za-z0-9])+.+[a-zA-Z][a-zA-Z]/}
+                    # format: EMAIL_REGEX, "must be an email address in correct email format" }
 
     # validates_presence_of :first_name,
     # validates_presence_of :last_name,

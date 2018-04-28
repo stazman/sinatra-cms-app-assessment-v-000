@@ -9,8 +9,8 @@ Specs:
 - [x] Include user accounts
 - [x] Ensure that users can't modify content created by other users
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [ ] Include user input validations
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [X] Include user input validations
+- [X] Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 https://github.com/stazman/small-business-website-with-user-accounts/blob/master/LICENSE

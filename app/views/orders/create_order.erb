@@ -1,11 +1,7 @@
-        <%# <%= binding.pry %>
 <h1>Make a New Order</h1>
 <h4>We will contact you by phone and email within one business day of your order to make an appointment.</h4>
-
-<form action="/orders/create_order" method="POST">
-    
+<form action="/orders/create_order" method="POST"> 
     <label>Date of Order: <%= Date.today %></label><br><br>
-
         <input type="hidden" name="order_date" id="order_date"><br><br>
     <label>Please tell us a description of your project:</label><br>
         <textarea type="textarea" name="order_description" id="customer_order_description" cols="80" rows="10" placeholder="(required)"></textarea><br><br>

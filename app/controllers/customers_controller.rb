@@ -92,7 +92,7 @@ class CustomersController < ApplicationController
             if @customer.errors.any? 
                 flash[:message] = "Please enter an email that is valid."
                 redirect "/customers/#{@customer.id}/customer_info"
-            else @customer.email.last != @customer.email 
+            elsif @customer.email.last != @customer.email 
                 redirect "/customers/#{@customer.id}/customer_info"
             end
         else 

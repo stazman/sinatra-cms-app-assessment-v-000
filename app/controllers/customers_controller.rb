@@ -12,6 +12,11 @@ class CustomersController < ApplicationController
         erb :"/sessions/customer_login"
     end
 
+     get '/customers/logout' do
+        session.clear
+        redirect "/sessions/customer_login"
+    end
+    
     get '/customers/:id' do
         if logged_in? 
             @customer = Customer.find(params[:id])
@@ -49,11 +54,7 @@ class CustomersController < ApplicationController
         end
     end
  
-    get '/customers/:id/logout' do
-        session.clear
-        redirect "/sessions/customer_login"
-    end
-
+   
     post '/registrations/customer_signup' do
         if params[:password] == "" || params[:email] == "" || params[:first_name] == "" || params[:last_name] == "" || params[:address] == "" || params[:phone_1] == ""
             flash[:message] = "First Name, Last Name, Email, Password, Address, and Phone Number are required."

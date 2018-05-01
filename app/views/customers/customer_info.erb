@@ -22,7 +22,7 @@
     <%= @customer.fax %><br>
 <br>
     <% if logged_in? %>
-        <a href = "/customers/<%= @customer.id %>/logout">Log out here</a>
+        <a href = "/customers/logout">Log out here</a>
     <% end %>
 <br><br>
     <a href="/customers/<%= @customer.id %>/edit_customer_info">Edit Contact Information</a>

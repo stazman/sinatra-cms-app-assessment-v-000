@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
         erb :"/sessions/customer_login"
     end
 
-     get '/customers/logout' do
+    get '/customers/logout' do
         session.clear
         redirect "/sessions/customer_login"
     end
@@ -82,7 +82,6 @@ class CustomersController < ApplicationController
             flash[:message] = "Please enter valid log-in information. If you have trouble logging in, please contact the Small Business Office at 555-555-5555."
             redirect "/sessions/customer_login" 
         end
-
     end
 
     patch '/customers/:id/edit_customer_info' do
